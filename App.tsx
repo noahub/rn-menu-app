@@ -4,8 +4,9 @@ import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 import { StatusBar } from "expo-status-bar";
 import { useCallback } from "react";
-import { StyleSheet } from "react-native";
+import { Button, StyleSheet } from "react-native";
 import Categories from "./screens/Categories";
+import MealDetails from "./screens/MealDetails";
 import MealOverview from "./screens/MealOverview";
 
 const Stack = createNativeStackNavigator();
@@ -30,9 +31,23 @@ export default function App() {
     <>
       <StatusBar style="dark" />
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="MealCategories">
-          <Stack.Screen name="MealCategories" component={Categories} />
+        <Stack.Navigator
+          initialRouteName="MealCategories"
+          screenOptions={{
+            headerStyle: { backgroundColor: "#fc7655" },
+            headerTintColor: "white",
+            contentStyle: { backgroundColor: "#dedede" },
+          }}
+        >
+          <Stack.Screen
+            name="MealCategories"
+            component={Categories}
+            options={{
+              title: "All Categories",
+            }}
+          />
           <Stack.Screen name="MealOverview" component={MealOverview} />
+          <Stack.Screen name="MealDetails" component={MealDetails} />
         </Stack.Navigator>
       </NavigationContainer>
     </>
