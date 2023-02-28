@@ -11,7 +11,7 @@ export default function CategoryGridTile({ title, color, onPress }) {
         ]}
         onPress={onPress}
       >
-        <View style={[styles.innerContainer, { backgroundColor: color }]}>
+        <View style={[styles.innerContainer, { borderColor: color }]}>
           <Text style={styles.title}>{title}</Text>
         </View>
       </Pressable>
@@ -26,11 +26,11 @@ const styles = StyleSheet.create({
     height: 150,
     borderRadius: 8,
     elevation: 4,
+    backgroundColor: "#efefef",
     shadowColor: "black",
     shadowOpacity: 0.25,
     shadowOffset: { width: 0, height: 2 },
     shadowRadius: 8,
-    backgroundColor: "white",
     overflow: Platform.select({ ios: "visible", android: "hidden" }),
   },
   btn: { flex: 1 },
@@ -41,6 +41,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     justifyContent: "center",
     alignItems: "center",
+    borderWidth: 4,
   },
   title: {
     fontFamily: "inter-bold",
